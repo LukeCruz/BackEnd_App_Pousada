@@ -1,8 +1,8 @@
 {
-  "name": "backendAppluke",
+  "name": "backend",
   "version": "1.0.0",
   "description": "backend",
-  "main": "index.js",
+  "main": "server.js",
   "engines": {
     "node": ">=16.0.0",
     "npm": ">=7.0.0"
@@ -10,7 +10,8 @@
   "scripts": {
     "start": "node -r dotenv/config src/server.js",
     "dev": "nodemon -r dotenv/config src/server.js",
-    "debug": "nodemon --ignore coverage index.js",
+    "debug": "nodemon --ignore coverage src/server.js",
+    "lint": "npx run lint",
     "test:mocha": "nyc --all --include models --include services --include controllers mocha tests/unit/**/*.js --exit"
   },
   "author": "lucas pereira cruz",
@@ -32,6 +33,9 @@
     "@types/sinon": "^10.0.13",
     "chai": "^4.3.6",
     "dotenv": "^16.0.1",
+    "eslint": "^8.23.0",
+    "eslint-config-airbnb-base": "^15.0.0",
+    "eslint-plugin-import": "^2.26.0",
     "sinon": "^14.0.0"
   }
 }

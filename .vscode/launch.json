@@ -1,27 +1,79 @@
 {
-  "version": "0.2.0",
+    // Use o IntelliSense para saber mais sobre os atributos possíveis.
+    // Focalizar para exibir as descrições dos atributos existentes.
+    // Para obter mais informações, acesse: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
     "configurations": [
+      {
+        "name": "attach",
+        "request": "attach",
+        "protocol": "inspector",
+        "restart": true,
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "type": "node"
+      },
+      
+     
+      {
+        "name": "Launch Program",
+        "program": "${file}",
+        "request": "launch",
+        "restart":true,
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "type": "node"
+      },
+
+
+      {
+        "name": "script debug",
+        "request": "launch",
+        "runtimeArgs": [
+          "run-script",
+          "debug"
+        ],
+        "runtimeExecutable": "npm",
+        "skipFiles": [
+          "<node_internals>/**"
+        ],
+        "type": "node"
+      },
+
+
+
+
         {
-            "name": "debug",
+            "name": "script start",
             "request": "launch",
             "runtimeArgs": [
-                "run-script",
-                "debug"
+              "start"
             ],
             "runtimeExecutable": "npm",
             "skipFiles": [
-                "<node_internals>/**"
+              "<node_internals>/**"
             ],
             "type": "node"
-        },
-        {
-            "type": "pwa-node",
+          },
+
+
+
+
+          {
+            "name": "nodemon",
+            "console": "integratedTerminal",
+            "internalConsoleOptions": "neverOpen",
+            "program": "${workspaceFolder}/src/**",
             "request": "launch",
-            "name": "Launch Program",
+            "restart": true,
+            "runtimeExecutable": "${workspaceFolder}/node_modules/.bin/nodemon",
             "skipFiles": [
-                "<node_internals>/**"
+              "<node_internals>/**"
             ],
-            "program": "${file}"
-        }
+            "type": "pwa-node"
+          },
     ]
+
 }
