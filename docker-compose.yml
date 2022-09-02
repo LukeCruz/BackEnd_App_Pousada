@@ -15,15 +15,13 @@ services:
     command: bash
     # Restarta a imagem caso algo a faça parar
     restart: always
-    # Diretório padrão de execução
+    # Diretório padrão de execução no docker depois de executar o DOCKER EXEC
     working_dir: /app
     # Lista de volumes (diretórios) mapeados de fora para dentro do container
     volumes:
       # Monta o diretório atual, com todos os dados do projeto, 
       # dentro do diretório /app
       - ./:/app
-     # - .:/home/node/app
-      #- node_modules:/home/node/app/node_modules
     # Lista de serviços do qual este serviço depende
     depends_on:
       # Precisa do banco funcionando antes de subir o node
@@ -32,13 +30,13 @@ services:
     # na notação porta_de_fora:porta_de_dentro
     ports:
       # Expõe a porta padrão da aplicação: altere aqui caso use outra porta
-      - 3000:3000
+      - 3030:3000
     # Configura as variáveis de ambiente dentro do container
     environment:
       MYSQL_USER: root
       MYSQL_PASSWORD: password
       MYSQL_HOST: db # Nome do service logo abaixo
-      PORT: '3000'
+      PORT: '3030'
 
   # Serviço que irá rodar o banco de dados
   db:
